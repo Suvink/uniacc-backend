@@ -16,6 +16,9 @@ if($_SERVER['REQUEST_METHOD']=="GET")
   else{
     $json = get_all_user_list();
     echo json_encode($json);
+    $fp = fopen('api.json', 'w');
+    fwrite($fp, json_encode($json));
+    fclose($fp);
   }
 }
 
